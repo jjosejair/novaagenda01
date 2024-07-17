@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    
+   
+"module": "esnext",  // Modifique esta linha
+    "moduleResolution": "node",
+    
+   
+"strict": true,
+    
+   
+"jsx": "preserve",
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    
+   
+"esModuleInterop": true,
+    "lib": ["esnext", "dom"],
+    
+   
+"baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  
+ 
+},
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"],
+  "exclude": ["node_modules"]
+}
