@@ -1,35 +1,18 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '../views/Home.vue';
-import AddContact from '../components/AddContact.vue';
-import EditContact from '../components/EditContact.vue';
-import ContactList from '../components/ContactList.vue';
+import ContactList from '../views/ContactLis.vue';
+import AddContact from '../views/AddContac.vue';
+import EditContact from '../views/EditContac.vue';
 
 const routes = [
-  {
-    path: '/',
-    name: 'Home',
-    component: HomeView,
-  },
-  {
-    path: '/add-contact',
-    name: 'AddContact',
-    component: AddContact,
-  },
-  {
-    path: '/edit-contact/:index',
-    name: 'EditContact',
-    component: EditContact,
-    props: true,
-  },
-  {
-    path: '/contact-list',
-    name: 'ContactList',
-    component: ContactList,
-  },
+  { path: '/', component: HomeView },
+  { path: '/contact-list', component: ContactList, props: true },
+  { path: '/add-contact', component: AddContact, props: true },
+  { path: '/edit-contact/:index', component: EditContact, props: true },
 ];
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHistory(),
   routes,
 });
 

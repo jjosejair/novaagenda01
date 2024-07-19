@@ -11,9 +11,7 @@
         </div>
         <div class="contact-actions">
           <RouterLink :to="`/edit-contact/${index}`" class="button button-edit">Editar</RouterLink>
-          <button class="button button-delete" @click="$emit('delete', index)">
-            Excluir
-          </button>
+          <button class="button button-delete" @click="deleteContact(index)">Excluir</button>
         </div>
       </div>
     </div>
@@ -37,6 +35,11 @@ export default defineComponent({
     contacts: {
       type: Array as () => Contact[],
       required: true,
+    },
+  },
+  methods: {
+    deleteContact(index: number) {
+      this.$emit('delete', index);
     },
   },
 });
