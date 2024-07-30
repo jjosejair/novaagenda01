@@ -1,0 +1,30 @@
+{
+  "contacts": [
+    {
+      "name": "jose",
+      "address":"joao evangelista 43",
+      "city":"fortaleza",
+      "phone": "85986500198",
+      "email": "jose@gmail.com"
+    },
+
+    {
+      "name": "caio",
+      "address":"joao evangelista 43",
+      "city":"ceara",
+      "phone": "85986500198",
+      "email": "caio@gmail.com"
+    },
+    {
+      "name": "joao",
+      "address":"joao evangelista 43",
+      "city":"sao paulo",
+      "phone": "85986500198",
+      "email": "joao@gmail.com"
+    }
+  ]
+}
+
+
+
+

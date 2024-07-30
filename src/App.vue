@@ -14,6 +14,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import database from "./json/contacts.json"
 
 interface Contact {
   name: string;
@@ -27,11 +28,7 @@ export default defineComponent({
   name: 'App',
   data() {
     return {
-      contacts: [
-        // Aqui você pode inicializar com alguns contatos de exemplo, se desejar
-        { name: 'Contato 1', address: 'Endereço 1', city: 'Cidade 1', phone: '1111-1111', email: 'contato1@exemplo.com' },
-        { name: 'Contato 2', address: 'Endereço 2', city: 'Cidade 2', phone: '2222-2222', email: 'contato2@exemplo.com' }
-      ] as Contact[],
+      contacts: database.contacts as Contact[]
     };
   },
   methods: {
