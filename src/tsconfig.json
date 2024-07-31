@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+      "module": "commonjs",
+      "esModuleInterop": true,
+      "resolveJsonModule": true,
+      "strict": true,
+      
+   
+  "target": "es6",
+      
+     
+  "baseUrl": ".",
+      "paths": {
+        "*": [
+          "node_modules/*"
+        ]
+      }
+    }
+  }
+  
