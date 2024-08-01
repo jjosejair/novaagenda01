@@ -14,7 +14,6 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import database from "./json/contacts.json"
 
 interface Contact {
   name: string;
@@ -28,20 +27,29 @@ export default defineComponent({
   name: 'App',
   data() {
     return {
-      contacts: database.contacts as Contact[]
+      contacts: [] as Contact[]
     };
   },
   methods: {
+    loadContacts() {
+      this.contacts = JSON.parse(localStorage.getItem('contacts') ?? '[]');
+    },
     deleteContact(index: number) {
       this.contacts.splice(index, 1);
+      localStorage.setItem('contacts', JSON.stringify(this.contacts));
     },
     updateContact(index: number, updatedContact: Contact) {
       this.contacts.splice(index, 1, updatedContact);
+      localStorage.setItem('contacts', JSON.stringify(this.contacts));
     },
     addContact(newContact: Contact) {
       this.contacts.push(newContact);
+      localStorage.setItem('contacts', JSON.stringify(this.contacts));
     },
   },
+  created() {
+    this.loadContacts();
+  }
 });
 </script>
 

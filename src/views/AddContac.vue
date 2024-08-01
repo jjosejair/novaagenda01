@@ -2,7 +2,7 @@
   <div class="add-contact-container">
     <div class="add-contact-box">
       <h2 class="add-contact-title">Adicionar Contato</h2>
-      <form @submit.prevent="addContact" class="add-contact-form">
+      <form @submit.prevent="submit" class="add-contact-form">
         <div class="form-group">
           <label for="name" class="form-label">Nome:</label>
           <input
@@ -87,14 +87,36 @@ export default defineComponent({
     };
   },
   methods: {
-    addContact() {
-      this.$emit('add-contact', this.newContact);
+    submit() {
+      const userObject = {
+        name: this.newContact.name,
+        address: this.newContact.address,
+        city: this.newContact.city,
+        phone: this.newContact.phone,
+        email: this.newContact.email,
+      };
+
+      // Log the userObject to the console
+      console.log('User Object:', userObject);
+
+      // Recuperar os contatos existentes do localStorage
+      let contacts = JSON.parse(localStorage.getItem('contacts') ?? '[]');
+      
+      // Adicionar o novo contato à lista
+      contacts.push(userObject);
+      
+      // Salvar a lista atualizada de volta no localStorage
+      localStorage.setItem('contacts', JSON.stringify(contacts));
+      
+      // Emite o evento para atualizar a lista de contatos na aplicação
+      this.$emit('add-contact', userObject);
+
+      // Redirecionar para a lista de contatos
       this.$router.push('/contact-list');
     },
   },
 });
 </script>
-
 
 <style scoped>
 .add-contact-container {
@@ -154,7 +176,7 @@ export default defineComponent({
   color: white;
 }
 
-.button-add {
+.button-save {
   background: #4caf50;
   color: white;
 }
